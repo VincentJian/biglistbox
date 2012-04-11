@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: biglistbox
+Specification-Version: 0.8.0
+Implementation-Title: biglistbox
+Implementation-Version: 0.8.0

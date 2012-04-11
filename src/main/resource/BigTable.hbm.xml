@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="data.pojo.BigTable" table="bigtable">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="increment" />
+		</id>
+		<property name="column1" type="string">
+			<column name="COLUMN1" />
+		</property>
+		<property name="column2" type="string">
+			<column name="COLUMN2" />
+		</property>
+		<property name="column3" type="string">
+			<column name="COLUMN3" />
+		</property>
+		<property name="column4" type="string">
+			<column name="COLUMN4" />
+		</property>
+		<property name="column5" type="string">
+			<column name="COLUMN5" />
+		</property>
+		<property name="column6" type="string">
+			<column name="COLUMN6" />
+		</property>
+		<property name="column7" type="string">
+			<column name="COLUMN7" />
+		</property>
+		<property name="column8" type="string">
+			<column name="COLUMN8" />
+		</property>
+		<property name="column9" type="string">
+			<column name="COLUMN9" />
+		</property>
+		<property name="column10" type="string">
+			<column name="COLUMN10" />
+		</property>
+		<property name="column11" type="string">
+			<column name="COLUMN11" />
+		</property>
+		<property name="column12" type="string">
+			<column name="COLUMN12" />
+		</property>
+		<property name="column13" type="string">
+			<column name="COLUMN13" />
+		</property>
+		<property name="column14" type="string">
+			<column name="COLUMN14" />
+		</property>
+		<property name="column15" type="string">
+			<column name="COLUMN15" />
+		</property>
+		<property name="column16" type="string">
+			<column name="COLUMN16" />
+		</property>
+		<property name="column17" type="string">
+			<column name="COLUMN17" />
+		</property>
+		<property name="column18" type="string">
+			<column name="COLUMN18" />
+		</property>
+		<property name="column19" type="string">
+			<column name="COLUMN19" />
+		</property>
+		<property name="column20" type="string">
+			<column name="COLUMN20" />
+		</property>
+		<property name="column21" type="string">
+			<column name="COLUMN21" />
+		</property>
+		<property name="column22" type="string">
+			<column name="COLUMN22" />
+		</property>
+		<property name="column23" type="string">
+			<column name="COLUMN23" />
+		</property>
+		<property name="column24" type="string">
+			<column name="COLUMN24" />
+		</property>
+		<property name="column25" type="string">
+			<column name="COLUMN25" />
+		</property>
+		<property name="column26" type="string">
+			<column name="COLUMN26" />
+		</property>
+		<property name="column27" type="string">
+			<column name="COLUMN27" />
+		</property>
+		<property name="column28" type="string">
+			<column name="COLUMN28" />
+		</property>
+		<property name="column29" type="string">
+			<column name="COLUMN29" />
+		</property>
+		<property name="column30" type="string">
+			<column name="COLUMN30" />
+		</property>
+		<property name="column31" type="string">
+			<column name="COLUMN31" />
+		</property>
+		<property name="column32" type="string">
+			<column name="COLUMN32" />
+		</property>
+		<property name="column33" type="string">
+			<column name="COLUMN33" />
+		</property>
+		<property name="column34" type="string">
+			<column name="COLUMN34" />
+		</property>
+		<property name="column35" type="string">
+			<column name="COLUMN35" />
+		</property>
+		<property name="column36" type="string">
+			<column name="COLUMN36" />
+		</property>
+		<property name="column37" type="string">
+			<column name="COLUMN37" />
+		</property>
+		<property name="column38" type="string">
+			<column name="COLUMN38" />
+		</property>
+		<property name="column39" type="string">
+			<column name="COLUMN39" />
+		</property>
+		<property name="column40" type="string">
+			<column name="COLUMN40" />
+		</property>
+		<property name="column41" type="string">
+			<column name="COLUMN41" />
+		</property>
+		<property name="column42" type="string">
+			<column name="COLUMN42" />
+		</property>
+		<property name="column43" type="string">
+			<column name="COLUMN43" />
+		</property>
+		<property name="column44" type="string">
+			<column name="COLUMN44" />
+		</property>
+		<property name="column45" type="string">
+			<column name="COLUMN45" />
+		</property>
+		<property name="column46" type="string">
+			<column name="COLUMN46" />
+		</property>
+		<property name="column47" type="string">
+			<column name="COLUMN47" />
+		</property>
+		<property name="column48" type="string">
+			<column name="COLUMN48" />
+		</property>
+		<property name="column49" type="string">
+			<column name="COLUMN49" />
+		</property>
+		<property name="column50" type="string">
+			<column name="COLUMN50" />
+		</property>
+		<property name="column51" type="string">
+			<column name="COLUMN51" />
+		</property>
+		<property name="column52" type="string">
+			<column name="COLUMN52" />
+		</property>
+		<property name="column53" type="string">
+			<column name="COLUMN53" />
+		</property>
+		<property name="column54" type="string">
+			<column name="COLUMN54" />
+		</property>
+		<property name="column55" type="string">
+			<column name="COLUMN55" />
+		</property>
+		<property name="column56" type="string">
+			<column name="COLUMN56" />
+		</property>
+		<property name="column57" type="string">
+			<column name="COLUMN57" />
+		</property>
+		<property name="column58" type="string">
+			<column name="COLUMN58" />
+		</property>
+		<property name="column59" type="string">
+			<column name="COLUMN59" />
+		</property>
+		<property name="column60" type="string">
+			<column name="COLUMN60" />
+		</property>
+		<property name="column61" type="string">
+			<column name="COLUMN61" />
+		</property>
+		<property name="column62" type="string">
+			<column name="COLUMN62" />
+		</property>
+		<property name="column63" type="string">
+			<column name="COLUMN63" />
+		</property>
+		<property name="column64" type="string">
+			<column name="COLUMN64" />
+		</property>
+		<property name="column65" type="string">
+			<column name="COLUMN65" />
+		</property>
+		<property name="column66" type="string">
+			<column name="COLUMN66" />
+		</property>
+		<property name="column67" type="string">
+			<column name="COLUMN67" />
+		</property>
+		<property name="column68" type="string">
+			<column name="COLUMN68" />
+		</property>
+		<property name="column69" type="string">
+			<column name="COLUMN69" />
+		</property>
+		<property name="column70" type="string">
+			<column name="COLUMN70" />
+		</property>
+		<property name="column71" type="string">
+			<column name="COLUMN71" />
+		</property>
+		<property name="column72" type="string">
+			<column name="COLUMN72" />
+		</property>
+		<property name="column73" type="string">
+			<column name="COLUMN73" />
+		</property>
+		<property name="column74" type="string">
+			<column name="COLUMN74" />
+		</property>
+		<property name="column75" type="string">
+			<column name="COLUMN75" />
+		</property>
+		<property name="column76" type="string">
+			<column name="COLUMN76" />
+		</property>
+		<property name="column77" type="string">
+			<column name="COLUMN77" />
+		</property>
+		<property name="column78" type="string">
+			<column name="COLUMN78" />
+		</property>
+		<property name="column79" type="string">
+			<column name="COLUMN79" />
+		</property>
+		<property name="column80" type="string">
+			<column name="COLUMN80" />
+		</property>
+		<property name="column81" type="string">
+			<column name="COLUMN81" />
+		</property>
+		<property name="column82" type="string">
+			<column name="COLUMN82" />
+		</property>
+		<property name="column83" type="string">
+			<column name="COLUMN83" />
+		</property>
+		<property name="column84" type="string">
+			<column name="COLUMN84" />
+		</property>
+		<property name="column85" type="string">
+			<column name="COLUMN85" />
+		</property>
+		<property name="column86" type="string">
+			<column name="COLUMN86" />
+		</property>
+		<property name="column87" type="string">
+			<column name="COLUMN87" />
+		</property>
+		<property name="column88" type="string">
+			<column name="COLUMN88" />
+		</property>
+		<property name="column89" type="string">
+			<column name="COLUMN89" />
+		</property>
+		<property name="column90" type="string">
+			<column name="COLUMN90" />
+		</property>
+		<property name="column91" type="string">
+			<column name="COLUMN91" />
+		</property>
+		<property name="column92" type="string">
+			<column name="COLUMN92" />
+		</property>
+		<property name="column93" type="string">
+			<column name="COLUMN93" />
+		</property>
+		<property name="column94" type="string">
+			<column name="COLUMN94" />
+		</property>
+		<property name="column95" type="string">
+			<column name="COLUMN95" />
+		</property>
+		<property name="column96" type="string">
+			<column name="COLUMN96" />
+		</property>
+		<property name="column97" type="string">
+			<column name="COLUMN97" />
+		</property>
+		<property name="column98" type="string">
+			<column name="COLUMN98" />
+		</property>
+		<property name="column99" type="string">
+			<column name="COLUMN99" />
+		</property>
+		<property name="column100" type="string">
+			<column name="COLUMN100" />
+		</property>
+	</class>
+</hibernate-mapping>
