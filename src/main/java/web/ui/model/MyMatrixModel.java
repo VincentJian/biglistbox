@@ -1,19 +1,24 @@
 package web.ui.model;
 
 import java.lang.reflect.Field;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.zkoss.lang.Objects;
 import org.zkoss.zkmax.zul.MatrixModel;
 import org.zkoss.zul.AbstractListModel;
+import org.zkoss.zul.event.ListDataEvent;
+import org.zkoss.zul.ext.Sortable;
 
 import data.dao.BigTableDAO;
 import data.pojo.BigTable;
 
 @SuppressWarnings("rawtypes")
-public class MyMatrixModel<Head extends List, Row extends List, Cell, Header> extends AbstractListModel<Row> implements MatrixModel<Row, Head, Cell, Header> {
+public class MyMatrixModel<Row extends List, Head extends List, Cell, Header> 
+extends AbstractListModel<Row> implements MatrixModel<Row, Head, Cell, Header>, Sortable<Cell> {
 
 	private static final long serialVersionUID = 3693737900474094171L;
 
@@ -33,16 +38,18 @@ public class MyMatrixModel<Head extends List, Row extends List, Cell, Header> ex
 			}});
 	}
 	
-	public void setRowCache(int start, int end) {
+	private void setRowCache(int start, int end) {
 		BigTableDAO dao = new BigTableDAO();
-		List<BigTable> list = dao.findBetweenIds(start, end);
+		int startId = _sortDir ? start : (_rowSize - start),
+			endId   = _sortDir ? end   : (_rowSize - end);
+		List<BigTable> list = _sortDir ? dao.findBetweenIds(startId, endId, _sortDir) : dao.findBetweenIds(endId, startId, _sortDir);
+		final List<String> fieldNames = new BigTable().getFieldsName();
 		_rowCache = new HashMap<String, MyKeyList<String>>();
-		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-			final BigTable bigTable = (BigTable) iterator.next();
+		for (Iterator<BigTable> iterator = list.iterator(); iterator.hasNext();) {
+			final BigTable bigTable = iterator.next();
 			MyKeyList<String> cells = new MyKeyList<String>(_colSize, start, new Fun() {
 				public Object apply(int index) throws Exception {
-					String name = "_column" + (index + 1);
-					Field field = bigTable.getClass().getDeclaredField(name);
+					Field field = bigTable.getClass().getDeclaredField(fieldNames.get(index));
 					field.setAccessible(true);
 					return (String) field.get(bigTable);
 				}
@@ -61,7 +68,7 @@ public class MyMatrixModel<Head extends List, Row extends List, Cell, Header> ex
 		}
 		return (Row) _rowCache.get(key);
 	}
-
+	
 	public int getSize() {
 		return _rowSize;
 	}
@@ -87,5 +94,22 @@ public class MyMatrixModel<Head extends List, Row extends List, Cell, Header> ex
 	@SuppressWarnings("unchecked")
 	public Header getHeaderAt(Head headData, int columnIndex) {
 		return (Header) headData.get(columnIndex);
+	}
+	
+	private Comparator<Cell> _sorting;
+	private boolean _sortDir = true;
+	
+	public void sort(Comparator<Cell> cmpr, boolean ascending) {
+		System.out.println(_beginOffset);
+		_sorting = cmpr;
+		_sortDir = ascending;
+		setRowCache(_beginOffset, _beginOffset + _cacheSize);
+		fireEvent(ListDataEvent.STRUCTURE_CHANGED, -1, -1);
+	}
+	
+	public String getSortDirection(Comparator<Cell> cmpr) {
+		if (Objects.equals(_sorting, cmpr))
+			return _sortDir ? "ascending" : "descending";
+		return "natural";
 	}
 }

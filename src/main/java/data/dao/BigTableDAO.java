@@ -17,24 +17,13 @@ public class BigTableDAO {
 		boolean result = false;
 		Session session = HibernateUtil.currentSession();
 		try {
+			session.beginTransaction();
 			session.saveOrUpdate(bigTable);
+			session.getTransaction().commit();
 			log.info("create or update succeed");
 			result = true;
 		} catch (HibernateException he) {
 			log.error("create or update failed", he);
-		}
-		return result;
-	}
-	
-	public boolean delete(BigTable bigTable) {
-		boolean result = false;
-		Session session = HibernateUtil.currentSession();
-		try {
-			session.delete(bigTable);
-			log.info("delete succeed");
-			result = true;
-		} catch (HibernateException he) {
-			log.error("delete failed", he);
 		}
 		return result;
 	}
@@ -58,29 +47,17 @@ public class BigTableDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<BigTable> findBetweenIds(int startId, int endId) {
+	public List<BigTable> findBetweenIds(int startId, int endId, boolean sortDir) {
 		Session session = HibernateUtil.currentSession();
 		List<BigTable> list = null;
 		try {
 			session.beginTransaction();
-			Query q = session.createQuery("select b from BigTable b where b.id between :start and :end");
+			String query = "SELECT b FROM BigTable b WHERE b.id BETWEEN :start AND :end ORDER BY b.id " + (sortDir ? "asc" : "desc");
+			Query q = session.createQuery(query);
 			q.setInteger("start", startId);
 			q.setInteger("end", endId);
 			list = q.list();
 			session.getTransaction().commit();
-		} catch (HibernateException he) {
-			log.error("get failed", he);
-		}
-		return list;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<BigTable> findAll() {
-		Session session = HibernateUtil.currentSession();
-		List<BigTable> list = null;
-		try {
-			list = session.createQuery("from BigTable").list();
-			log.info("find all successful, result size: " + list.size());
 		} catch (HibernateException he) {
 			log.error("get failed", he);
 		}

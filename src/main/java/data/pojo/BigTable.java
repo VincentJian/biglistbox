@@ -1,6 +1,8 @@
 package data.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BigTable implements Serializable {
 
@@ -21,7 +23,14 @@ public class BigTable implements Serializable {
 	public BigTable() {
 		super();
 	}
-
+	
+	public List<String> getFieldsName() {
+		List<String> names = new ArrayList<String>();
+		for (int i = 1; i<101; i++)
+			names.add("_column" + i);
+		return names;
+	}
+	
 	public int getId() {
 		return _id;
 	}
