@@ -18,7 +18,7 @@ public class Script {
 	}
 	
 	private static void createTable() {
-		StringBuilder query = new StringBuilder("DROP TABLE IF EXISTS bigtable; CREATE TABLE bigtable (id int,");
+		StringBuilder query = new StringBuilder("CREATE TABLE bigtable (id int,");
 		for (int i = 0; i< 100; i++)
 			query.append("column" + (i+1) + " varchar(45), ");
 		query.append("PRIMARY KEY(id));");

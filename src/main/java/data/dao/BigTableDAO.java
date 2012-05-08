@@ -52,7 +52,8 @@ public class BigTableDAO {
 		List<BigTable> list = null;
 		try {
 			session.beginTransaction();
-			String query = "SELECT b FROM BigTable b WHERE b.id BETWEEN :start AND :end ORDER BY b.id " + (sortDir ? "asc" : "desc");
+			String query = "SELECT b FROM BigTable b WHERE b.id BETWEEN :start AND :end ORDER BY b.id "
+					+ (sortDir ? "asc" : "desc");
 			Query q = session.createQuery(query);
 			q.setInteger("start", startId);
 			q.setInteger("end", endId);

@@ -5,7 +5,7 @@
 	<artifactId>biglistbox</artifactId>
 	<version>0.8.0</version>
 	<properties>
-		<zk.version>6.0.1-SNAPSHOT</zk.version>
+		<zk.version>6.0.1</zk.version>
 		<hibernate.version>3.6.8.Final</hibernate.version>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.8.0-FL-${maven.build.timestamp}</packname>
